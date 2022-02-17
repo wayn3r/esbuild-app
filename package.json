@@ -4,7 +4,7 @@
   "description": "React App using esbuild",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/index.js --bundle --inject:./config/runtime-jsx.js --outdir=build --loader:.js=jsx --minify --loader:.png=file --loader:.jpg=file --asset-names=static/[name].[hash]"
+    "build": "node scripts/build.js"
   },
   "keywords": [],
   "author": "wayn3r",
@@ -13,5 +13,9 @@
     "esbuild": "^0.14.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "eslint": "8.9.0",
+    "eslint-plugin-react": "^7.28.0"
   }
 }

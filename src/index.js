@@ -1,7 +1,7 @@
-import * as Server from 'react-dom/server'
-import { description } from '../package.json'
+import { StrictMode } from 'react'
+import { render } from 'react-dom'
+import { App } from './App'
 import './css/styles.css'
-import image from './assets/asset.jpg'
 
-const Greet = () => <h1>Hello, world!</h1>
-console.log(Server.renderToString(<Greet />),description, image)
+const root = document.getElementById('root')
+render(<StrictMode><App /></StrictMode>, root)
