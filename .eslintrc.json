@@ -14,9 +14,33 @@
   },
   "plugins": ["react"],
   "rules": {
-    "indent": ["error", 4],
+    "max-len": [
+      "warn",
+      {
+        "code": 120,
+        "tabWidth": 4,
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    "indent": ["error", 4, { "SwitchCase": 1 }],
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
-    "react/react-in-jsx-scope": "off"
+    "arrow-parens": ["error", "as-needed"],
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_*ignored$",
+        "varsIgnorePattern": "^_*ignored$"
+      }
+    ],
+    "linebreak-style": "off",
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-extra-boolean-cast": "off",
+    "quote-props": ["error", "as-needed"]
   }
 }
