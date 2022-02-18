@@ -48,10 +48,10 @@ const serveBuild = async () => {
                 onRebuild(error){
                     console.clear()
                     if(!error) {
-                        buildWorksMessage( serverInfo )
+                        return buildWorksMessage( serverInfo )
                     }
 
-                    console.log(error)
+                    console.log(error.errors)
                 }
             },
         })

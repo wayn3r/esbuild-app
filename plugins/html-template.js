@@ -34,12 +34,11 @@ const htmlTemplate = {
         copyDir('./public', outdir)
         build.onEnd(result => {
             const { outputs } = result.metafile || {}
-            console.log(outputs)
+            
             if(!outputs) return
             const js = []
             const css = []
             for(const filename in outputs) {
-               
                 if(/\.js$/i.test(filename)){
                     const relative = filename.replace(outdir, '.')
                     js.push(relative)
