@@ -1,7 +1,8 @@
-const { outdir } = require('../esbuild.config.json') 
 const fs = require('fs')
 const path = require('path')
+
 const copyDir = (src, dest) => {
+    fs.rmdirSync(dest, { recursive: true })
     fs.readdir(
         src, 
         { encoding: 'utf-8', withFileTypes: true }, 
@@ -22,5 +23,4 @@ const copyDir = (src, dest) => {
     )
 }
 
-fs.rmdirSync('./build', { recursive: true })
-module.exports = { copyPublic : () => copyDir('./public', outdir) }
+module.exports = { copyDir }

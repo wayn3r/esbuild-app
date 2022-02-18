@@ -1,12 +1,6 @@
 
 const { build } = require('esbuild')
-const config = require('../esbuild.config.json')
-const { htmlTemplate } = require('../plugins/html-template')
-
+const config = require('../config/esbuild')
 ;(async()=>{
-    await build({
-        ...config,
-        plugins: [htmlTemplate]
-    }).catch(() => process.exit(1))
-
+    await build(config).catch(() => process.exit(1))
 })()

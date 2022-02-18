@@ -1,5 +1,5 @@
 const fs = require('fs')
-const { copyPublic } = require('../plugins/copy-public')
+const { copyDir } = require('../plugins/copy-public')
 
 const html = { content: null }
 const getIndexHtml = () => {
@@ -30,10 +30,12 @@ const setIndexHtml = () => {
 const htmlTemplate = {
     name: 'html-template',
     setup(build){
-        copyPublic()
+        const { outdir } = build.initialOptions
+        copyDir('./public', outdir)
         build.onEnd(result => {
-            const { outdir } = build.initialOptions
-            const { outputs } = result.metafile
+            const { outputs } = result.metafile || {}
+            console.log(outputs)
+            if(!outputs) return
             const js = []
             const css = []
             for(const filename in outputs) {
